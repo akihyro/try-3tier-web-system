@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>アイテム</title>
+    <script src="lib/backbone.marionette/jquery.js"></script>
+    <script src="lib/backbone.marionette/underscore.js"></script>
+    <script src="lib/backbone.marionette/backbone.js"></script>
+    <script src="lib/backbone.marionette/backbone.marionette.js"></script>
+    <script src="entry.js"></script>
+    <script id="item-template" type="text/template">
+        <form>
+            <table>
+                <tr>
+                    <th>アイテムID</th>
+                    <td>
+                        <input name="itemId" type="text" value="<%= itemId %>" readonly="readonly" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>アイテム名</th>
+                    <td>
+                        <input name="itemName" type="text" value="<%= itemName %>" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>説明</th>
+                    <td>
+                        <input name="descriptions" type="text" value="<%= descriptions[0] %>" />
+                        <input name="descriptions" type="text" value="<%= descriptions[1] %>" />
+                        <input name="descriptions" type="text" value="<%= descriptions[2] %>" />
+                        <input name="descriptions" type="text" value="<%= descriptions[3] %>" />
+                        <input name="descriptions" type="text" value="<%= descriptions[4] %>" />
+                    </td>
+                </tr>
+            </table>
+            <input id="enterButton" type="submit" value="登録" />
+            <input id="deleteButton" type="submit" value="削除" />
+            <a id="backButton" href=".">戻る</a>
+        </form>
+    </script>
+</head>
+<body>
+    <h1>アイテム</h1>
+    <div id="main-region"></div>
+</body>
+</html>

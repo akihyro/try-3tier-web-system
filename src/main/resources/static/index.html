@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>アイテム検索/一覧</title>
+    <script src="lib/backbone.marionette/jquery.js"></script>
+    <script src="lib/backbone.marionette/underscore.js"></script>
+    <script src="lib/backbone.marionette/backbone.js"></script>
+    <script src="lib/backbone.marionette/backbone.marionette.js"></script>
+    <script src="index.js"></script>
+    <script id="items-template" type="text/template">
+        <a href="new.html">[新規]</a>
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>アイテムID</th>
+                    <th>アイテム名</th>
+                    <td>説明リスト</td>
+                    <td>編集</td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </script>
+    <script id="item-template" type="text/template">
+        <td><%= itemId %></td>
+        <td><%= itemName %></td>
+        <td><%= descriptions %></td>
+        <td><a href="<%= itemId %>.html">[編集]</a></td>
+    </script>
+</head>
+<body>
+    <h1>アイテム一覧</h1>
+    <div id="main-region"></div>
+</body>
+</html>
