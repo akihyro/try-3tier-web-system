@@ -1,8 +1,9 @@
 package akihyro.try3tierwebsystem;
 
-import java.util.ArrayList;
 import static java.util.Arrays.asList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.annotation.PostConstruct;
 
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("apis/items")
 public class ItemsController {
 
-    public static List<Item> items = new ArrayList<>();
+    private static int nextItemId = 1;
+
+    public static Map<Integer, Item> items = new TreeMap<>();
 
     @PostConstruct
     public void initItems() {
@@ -26,27 +29,32 @@ public class ItemsController {
     }
 
     @RequestMapping
-    public List<Item> getItems() {
-        return items;
+    public Collection<Item> getItems() {
+        return items.values();
     }
 
     @RequestMapping(value = "{itemId}")
     public Item getItem(@PathVariable Integer itemId) {
-        return items.get(itemId - 1);
+        return items.get(itemId);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public Item postItem(@RequestBody Item item) {
-        item.setItemId(items.size() + 1);
-        items.add(item);
+        item.setItemId(nextItemId++);
+        items.put(item.getItemId(), item);
         return item;
     }
 
     @RequestMapping(value = "{itemId}", method = RequestMethod.PUT)
     public Item putItem(@PathVariable Integer itemId, @RequestBody Item item) {
         item.setItemId(itemId);
-        items.set(itemId - 1, item);
+        items.put(itemId, item);
         return item;
+    }
+
+    @RequestMapping(value = "{itemId}", method = RequestMethod.DELETE)
+    public void deleteItem(@PathVariable Integer itemId) {
+        items.remove(itemId);
     }
 
 }
