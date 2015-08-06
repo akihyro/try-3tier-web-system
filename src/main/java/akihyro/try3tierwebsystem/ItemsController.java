@@ -1,7 +1,10 @@
 package akihyro.try3tierwebsystem;
 
 import java.util.ArrayList;
+import static java.util.Arrays.asList;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ItemsController {
 
     public static List<Item> items = new ArrayList<>();
+
+    @PostConstruct
+    public void initItems() {
+        postItem(Item.builder().itemName("鉄柱 5m").descriptions(asList("頑丈", "黒色", "細い", "短い")).build());
+        postItem(Item.builder().itemName("鉄柱 15m").descriptions(asList("脆い", "黒色", "太い", "長い")).build());
+        postItem(Item.builder().itemName("鉄柱 25m").descriptions(asList("超頑丈", "白色", "激太", "激長")).build());
+    }
 
     @RequestMapping
     public List<Item> getItems() {
