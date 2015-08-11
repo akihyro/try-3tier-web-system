@@ -4,9 +4,9 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>athome</groupId>
+    <groupId>akihyro</groupId>
     <artifactId>try-3tier-web-system</artifactId>
-    <name>ttry-3tier-web-system</name>
+    <name>try-3tier-web-system</name>
     <version>0.1</version>
     <packaging>jar</packaging>
     <parent>
