@@ -25,10 +25,8 @@ var ItemView = Marionette.ItemView.extend({
             event.preventDefault();
             this.model.save({
                 itemName: this.ui.form.find("input[name=itemName]").val(),
-                descriptions: this.ui.form.find("input[name=descriptions]")
-                    .map(function(i, e) { return $(e).val(); })
-                    .filter(function(i, e) { return e.length > 0; })
-                    .get()
+                itemValue: this.ui.form.find("input[name=itemValue]").val(),
+                descriptions: this.ui.form.find("input[name=descriptions]").val()
             }, {
                 success: function() {
                     self.ui.backButton.get(0).click();
@@ -62,7 +60,8 @@ var MyRouter = Marionette.AppRouter.extend({
         var item = new Item({
             itemId: null,
             itemName: "",
-            descriptions: []
+            itemValue: "",
+            descriptions: ""
         });
         var view = new ItemView({ model: item });
         app.mainRegion.show(view);

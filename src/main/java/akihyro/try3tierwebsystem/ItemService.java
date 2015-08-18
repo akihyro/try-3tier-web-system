@@ -14,7 +14,7 @@ public class ItemService {
     private ItemRepository itemRepository;
 
     public List<Item> findAll() {
-        return itemRepository.findAll();
+        return itemRepository.findItemAsc();
     }
     public Item findOne(Integer id) {
         return itemRepository.findOne(id);

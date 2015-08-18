@@ -2,10 +2,10 @@ package akihyro.try3tierwebsystem;
 
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -20,7 +20,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Item")
 public class Item {
 
     @Id
@@ -29,7 +28,8 @@ public class Item {
 
     private String itemName;
 
-    @ElementCollection
-    private List<String> descriptions;
+    private Integer itemValue;
+
+    private String descriptions;
 
 }
