@@ -1,0 +1,12 @@
+## YAML Template.
+---
+---
+spring:
+  datasource:
+      url: jdbc:mysql://localhost/rings
+      username: root
+      password: moko
+      driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
